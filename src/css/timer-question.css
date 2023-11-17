@@ -1,0 +1,78 @@
+.section-center .progress {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: solid 1px rgb(148 163 184);
+}
+
+.section-center .progress div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    padding: 25px 0;
+}
+
+.section-center .progress div p {
+    font-size: 16px;
+    color: rgb(16 185 129);
+}
+
+.section-center .progress h2 {
+    font-weight: 600;
+}
+
+.body-section-center .time-question {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    text-transform: uppercase;
+    color: rgb(148 163 184);
+}
+
+.body-section-center .time-question .time-restant {
+    display: flex;
+    align-items: center;
+}
+
+.box {
+    border-radius: 5px;
+    position: relative;
+}
+
+.box-circle svg {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+circle {
+    fill: none;
+    stroke: black;
+    stroke-width: 5px;
+    transform: translate(15px, 17px);
+    stroke-dasharray: 156;
+    stroke-dashoffset: 0;
+}
+
+circle:nth-child(1) {
+    stroke-dashoffset: 0;
+    stroke: rgb(102, 102, 102);
+}
+
+circle:nth-child(2) {
+    transition: stroke-dashoffset 0.3s;
+    stroke: dodgerblue;
+}
+
+.number {
+    position: absolute;
+    top: 25px;
+    left: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(203 213 225);
+}

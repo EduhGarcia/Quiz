@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Perguntas Gerais</title>
+
+    <link rel="stylesheet" href="./src/css/global.css">
+    <link rel="stylesheet" href="./src/css/timer-question.css">
+    <link rel="stylesheet" href="./src/css/rigthQuestions.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <main>
+        <section class="section-center">
+            <div class="progress">
+                <div>
+                    <h2>Seja bem vindo !!</h2>
+                    <p>Teste total: <span id="percentage">0</span>% de progresso</p>
+                </div>
+            </div>
+
+            <div class="body-section-center">
+                <div class="time-question">
+                    <p id="question-left"></p>
+
+                    <div class="time-restant">
+                        <p>tempo restante</p>
+                        <div class="box">
+                            <div class="box-circle">
+                                <svg>
+                                    <circle cx="25" cy="25" r="25"></circle>
+                                    <circle id="circleProgress" cx="25" cy="25" r="25"></circle>
+                                </svg>
+                            </div>
+
+                            <div class="number">
+                                <h2 class="secondsTime">60</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="question-and-options"></div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="./src/scripts/main.js"></script>
+</body>
+
+</html>

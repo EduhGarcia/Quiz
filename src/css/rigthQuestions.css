@@ -1,0 +1,53 @@
+.question-situation {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    width: 99%;
+    border-radius: 8px;
+}
+
+.question-error {
+    border: solid 2px lightcoral;
+}
+
+.question-rigth {
+    border: solid 2px lightgreen;
+}
+
+.page-finally {
+    margin: 40px 0 130px 0;
+    position: relative;
+}
+
+.responses-question-user {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 390px;
+    overflow: auto;
+}
+
+.responses-question-user::-webkit-scrollbar {
+    width: 10px;
+}
+
+.responses-question-user::-webkit-scrollbar-thumb {
+    border-radius: 45px;
+    background-color: lightblue;
+}
+
+.responses-question-user::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+.body-section-center .question-and-options i {
+    font-size: 21px;
+}
+
+.icon-check {
+    color: lightgreen;
+}
+
+.icon-error {
+    color: lightcoral;
+}
