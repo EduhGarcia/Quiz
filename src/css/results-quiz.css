@@ -15,7 +15,7 @@
 }
 
 .page-finally {
-    margin: 40px 0 130px 0;
+    margin: 0 0 130px 0;
     position: relative;
 }
 
@@ -25,6 +25,10 @@
     gap: 15px;
     max-height: 390px;
     overflow: auto;
+}
+
+.question-situation {
+    width: 100%;
 }
 
 .responses-question-user::-webkit-scrollbar {
@@ -50,4 +54,21 @@
 
 .icon-error {
     color: lightcoral;
+}
+
+.btn-remake {
+    bottom: -90px;
+    right: 0;
+    cursor: pointer;
+}
+
+.btn-template {
+    bottom: -90px;
+    left: 0;  
+    cursor: pointer;   
+}
+
+.mode-actived {
+    opacity: 1;
+    cursor: pointer;
 }
