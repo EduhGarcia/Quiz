@@ -6,8 +6,6 @@ const timeQuestion = document.querySelector(".time-question")
 const textMain = document.querySelector('h2')
 const questionLeft = document.getElementById("question-left")
 const percentage = document.getElementById("percentage")
-const btnLogin = document.getElementById("log-in")
-const btnSignin = document.getElementById("sign-in")
 
 let countQuest = 0
 let checked = false
@@ -27,7 +25,8 @@ function renderQuestions() {
     if (countQuest < 8) {
         questionLeft.innerText = `${numberleftQuestions} perguntas restantes`
 
-        let cardQuest = `<p id="question">${json[countQuest].pergunta.pergunta}</p>
+        let cardQuest = `
+        <p id="question">${json[countQuest].pergunta.pergunta}</p>
         <div class="options" id="options"></div>`
 
         container.innerHTML = cardQuest
@@ -53,11 +52,12 @@ function renderQuestions() {
         })
 
         const button = document.createElement('button')
+        button.classList.add('btn-default')
         button.classList.add('btn-next')
         button.innerText = "Próximo"
 
         container.appendChild(button)
-
+ 
         const btnNext = container.querySelector(".btn-next")
         const checkInput = document.querySelectorAll("input")
 
@@ -71,46 +71,53 @@ function renderQuestions() {
 function finallyPage() {
     container.classList.add('page-finally')
     timeQuestion.style.display = 'none'
+    
     container.innerHTML = `
     <section class="number-hits">
-        <p>Acertos: 0/10</p>
-        <button>Gabarito</button>
+        <p>Acertos: <span id="hits">0</span>/${json.length}</p>
     </section>
 
     <div class="responses-question-user"></div>
     `
 
+    let responsesCorrect = 0
+
     responsesUser.map((item, index) => {
-        let resposta = json[index].pergunta.respostas.find(p => (p.id == responsesUser[index].id))
+        let response = json[index].pergunta.respostas.find(p => (p.id == responsesUser[index].id))
+
         const div = document.createElement('div')
         div.classList.add('question-situation')
 
-        if (resposta === undefined || resposta.correta === false) {
+        if (response === undefined || response.correta === false) {
 
             div.classList.add('question-error')
-            div.innerHTML = `<p>${resposta === undefined ? 'Não respondida' : 'Letra ' + responsesUser[index].letterResponse} - Resposta errada</p>
+            div.innerHTML = `
+            <p>${index + 1}) ${response === undefined ? 'Não respondida' : 'Letra ' + responsesUser[index].letterResponse} - Resposta errada</p>
             
-            <i class="fa-solid fa-circle-xmark icon-error"></i>`
+            <i class="fa-solid fa-circle-xmark icon-error"></i>`       
+
         } else {
             div.classList.add('question-rigth')
-            div.innerHTML = `<p>Letra ${responsesUser[index].letterResponse} -
-            Resposta correta</p>
+            div.innerHTML = `
+            <p>${index + 1}) Letra ${responsesUser[index].letterResponse} - Resposta correta</p>
             
             <i class="fa-solid fa-circle-check icon-check"></i>`
+
+            responsesCorrect++
         }
-        
-        document.querySelector('.responses-question-user').innerHTML += `
-            <div>
-                
-            </div>
-        `
 
         document.querySelector('.responses-question-user').appendChild(div)
-        textMain.innerText = 'Parabéns teste concluído'
     })
 
-    container.innerHTML += `<button class="btn-remake">Refazer Quiz</button>`
+    textMain.innerText = 'Parabéns teste concluído'
+    document.getElementById('hits').innerText = responsesCorrect
+
+    container.innerHTML += `
+    <button class="btn-default btn-remake">Refazer Quiz</button>
+    <button class="btn-default btn-template">Gabarito</button>`
+
     document.querySelector('.btn-remake').addEventListener('click', remakeQuiz)
+    document.querySelector('.btn-template').addEventListener('click', templateQuestions)
 }
 
 function remakeQuiz() {
@@ -129,22 +136,39 @@ function remakeQuiz() {
     renderQuestions()
 }
 
-// function pageLogin() {
-//     document.querySelector(".connecting").classList.remove('display-disable')
-//     document.querySelector("main").style.filter = 'blur(5px)'
+function templateQuestions() {
+    const template = document.querySelector('.template')
+    const sectionCenter = document.querySelector('.section-center')
 
-//     document.querySelector(".icon-exit").addEventListener('click', () => {
-//         document.querySelector(".connecting").classList.add('display-disable')
-//         document.querySelector("main").style.filter = 'blur(0px)'
-//     })
-// }
+    template.classList.remove('screen-disable')
+    sectionCenter.style.filter = 'blur(4px)'
+
+    template.innerHTML = `
+    <h2>Gabarito<h2>
+    <i class="fa-regular fa-circle-xmark icon-exit"></i>
+    `
+
+    json.map((item, index) => {
+        let templateResponses = json[index].pergunta.respostas.find(p => (p.correta == true))
+
+        template.innerHTML += `
+        <div class="template-response">
+            <p>${index + 1}) ${templateResponses.letraResposta} - ${templateResponses.resposta}</p>
+        </div>`
+    })
+
+    template.querySelector('.icon-exit').addEventListener('click', () => {
+        template.classList.add('screen-disable')
+        sectionCenter.style.filter = 'blur(0)'
+    })
+}
 
 function indentifyCheck(checkInput, btnNext) {
     checkInput.forEach(item => {
         if (item.checked) {
             checked = true
             inputChecked = item
-            btnNext.classList.add('btn-actived')
+            btnNext.classList.add('mode-actived')
         }
     })
 }
@@ -152,7 +176,7 @@ function indentifyCheck(checkInput, btnNext) {
 function backToDefault(btnNext) {
     getResponseUser()
     checked = false
-    btnNext.classList.remove("btn-actived")
+    btnNext.classList.remove("mode-actived")
     inputChecked.checked = false
     inputChecked = undefined
 
