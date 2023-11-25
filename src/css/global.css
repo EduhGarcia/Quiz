@@ -8,8 +8,8 @@
 }
 
 body {
-    background-color: rgb(100 116 139);
-    color: white;
+    background-color: var(--cor-background);
+    color: var(--cor-branca);
     font-family: 'Noto Sans', sans-serif;
 }
 
@@ -18,4 +18,11 @@ main {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+:root {
+    --cor-branca: rgb(203 213 225);
+    --verde-claro: rgb(16 185 129);
+    --cor-background: rgb(100 116 139);
+    --cinza-escuro: rgb(51 65 85);
 }
