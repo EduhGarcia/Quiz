@@ -15,7 +15,7 @@
 
 .section-center .progress div p {
     font-size: 16px;
-    color: rgb(16 185 129);
+    color: var(--verde-claro);
 }
 
 .section-center .progress h2 {
@@ -50,7 +50,7 @@
 
 circle {
     fill: none;
-    stroke: black;
+    stroke: #000000;
     stroke-width: 5px;
     transform: translate(15px, 17px);
     stroke-dasharray: 156;
@@ -74,5 +74,5 @@ circle:nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(203 213 225);
+    color: var(--cor-branca);
 }
