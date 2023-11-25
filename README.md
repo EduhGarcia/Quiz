@@ -11,4 +11,3 @@ Cada questão vai ter 4 ou 5 alternativas para o usuário responder, o tempo má
 - HTML
 - CSS
 - JavaScript
-
