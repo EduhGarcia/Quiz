@@ -4,7 +4,7 @@
     align-items: center;
     border-radius: 7px;
     width: 60%;
-    background-color: rgb(51 65 85);
+    background-color: var(--cinza-escuro);
 }
 
 .body-section-center {
@@ -33,12 +33,12 @@
 .body-section-center .question-and-options .option {
     display: flex;
     padding-left: 20px;
-    border: 2px solid rgb(100 116 139);
+    border: 2px solid var(--cor-background);
     transition: 0.6s ease;
 }
 
 .body-section-center .question-and-options .option:hover {
-    border: 2px solid rgb(16 185 129);
+    border: 2px solid var(--verde-claro);
 }
 
 .label-response {
@@ -59,7 +59,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--cor-branca);
     border: 1px solid gray;
     display: inline-block;
     vertical-align: middle;
@@ -72,8 +72,8 @@
     font-size: 17px;
     font-weight: 700;
     text-align: center;
-    color: rgb(203 213 225);
-    background-color: rgb(16 185 129);
+    color: var(--cor-branca);
+    background-color: var(--verde-claro);
     line-height: 21px;
     border: 1px solid transparent;
 }
@@ -83,38 +83,30 @@
     width: 100%;
 }
 
-.btn-next {
-    position: absolute;
-    bottom: 35px;
-    right: 10px;
+.btn-default {
+    position: absolute; 
     font-size: 18px;
     padding: 15px 35px;
-    cursor: not-allowed;
     font-weight: 600;
-    background-color: rgb(29 78 216);
-    color: #ffffff;
+    background-color: rgb(29 90 216);
+    color: var(--cor-branca);
     border: none;
+    border-radius: 4px;
+}
+
+.btn-next {
+    cursor: not-allowed;
+    bottom: 35px;
+    right: 10px;
     opacity: 0.3;
 }
 
-.btn-actived {
+.mode-actived {
     opacity: 1;
     cursor: pointer;
 }
 
-.btn-actived:hover, .btn-remake:hover {
+.mode-actived:hover, .btn-remake:hover,
+.btn-template:hover {
     opacity: 0.6;
-}
-
-.btn-remake {
-    position: absolute;
-    bottom: -90px;
-    right: 0;
-    font-size: 18px;
-    padding: 15px 35px;
-    cursor: pointer;
-    font-weight: 600;
-    background-color: rgb(29 78 216);
-    color: #ffffff;
-    border: none;
 }
