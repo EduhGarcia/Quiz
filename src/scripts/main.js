@@ -71,6 +71,7 @@ function renderQuestions() {
 
 function finallyPage() {
     container.classList.add('page-finally')
+    document.querySelector('.message-progress').classList.add('screen-disable')
     timeQuestion.style.display = 'none'
 
     container.innerHTML = `
@@ -110,7 +111,7 @@ function finallyPage() {
         document.querySelector('.responses-question-user').appendChild(div)
     })
 
-    textMain.innerText = 'Parabéns teste concluído'
+    textMain.innerText = 'Parabéns teste concluído !'
     document.getElementById('hits').innerText = responsesCorrect
 
     container.innerHTML += `
