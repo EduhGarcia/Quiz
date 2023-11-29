@@ -1,4 +1,5 @@
 import json from '../../perguntas.json' assert { type: "json" };
+import { templateQuestions } from './template.js';
 
 const container = document.querySelector(".question-and-options")
 const display = document.querySelector(".secondsTime")
@@ -57,7 +58,7 @@ function renderQuestions() {
         button.innerText = "Próximo"
 
         container.appendChild(button)
- 
+
         const btnNext = container.querySelector(".btn-next")
         const checkInput = document.querySelectorAll("input")
 
@@ -71,7 +72,7 @@ function renderQuestions() {
 function finallyPage() {
     container.classList.add('page-finally')
     timeQuestion.style.display = 'none'
-    
+
     container.innerHTML = `
     <section class="number-hits">
         <p>Acertos: <span id="hits">0</span>/${json.length}</p>
@@ -94,7 +95,7 @@ function finallyPage() {
             div.innerHTML = `
             <p>${index + 1}) ${response === undefined ? 'Não respondida' : 'Letra ' + responsesUser[index].letterResponse} - Resposta errada</p>
             
-            <i class="fa-solid fa-circle-xmark icon-error"></i>`       
+            <i class="fa-solid fa-circle-xmark icon-error"></i>`
 
         } else {
             div.classList.add('question-rigth')
@@ -113,8 +114,10 @@ function finallyPage() {
     document.getElementById('hits').innerText = responsesCorrect
 
     container.innerHTML += `
-    <button class="btn-default btn-remake">Refazer Quiz</button>
-    <button class="btn-default btn-template">Gabarito</button>`
+    <div class="buttons-finnaly-page">
+        <button class="btn-default btn-remake">Refazer Quiz</button>
+        <button class="btn-default btn-template">Gabarito</button>
+    </div>`
 
     document.querySelector('.btn-remake').addEventListener('click', remakeQuiz)
     document.querySelector('.btn-template').addEventListener('click', templateQuestions)
@@ -134,33 +137,6 @@ function remakeQuiz() {
 
     startTimer(590, display)
     renderQuestions()
-}
-
-function templateQuestions() {
-    const template = document.querySelector('.template')
-    const sectionCenter = document.querySelector('.section-center')
-
-    template.classList.remove('screen-disable')
-    sectionCenter.style.filter = 'blur(4px)'
-
-    template.innerHTML = `
-    <h2>Gabarito<h2>
-    <i class="fa-regular fa-circle-xmark icon-exit"></i>
-    `
-
-    json.map((item, index) => {
-        let templateResponses = json[index].pergunta.respostas.find(p => (p.correta == true))
-
-        template.innerHTML += `
-        <div class="template-response">
-            <p>${index + 1}) ${templateResponses.letraResposta} - ${templateResponses.resposta}</p>
-        </div>`
-    })
-
-    template.querySelector('.icon-exit').addEventListener('click', () => {
-        template.classList.add('screen-disable')
-        sectionCenter.style.filter = 'blur(0)'
-    })
 }
 
 function indentifyCheck(checkInput, btnNext) {

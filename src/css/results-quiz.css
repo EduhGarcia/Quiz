@@ -57,16 +57,19 @@
     color: lightcoral;
 }
 
-.question-and-options .btn-remake {
+.question-and-options .buttons-finnaly-page {
+    width: 100%;
     bottom: -90px;
     right: 0;
-    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
 }
 
+.question-and-options .btn-remake,
 .question-and-options .btn-template {
-    bottom: -90px;
-    left: 0;  
-    cursor: pointer;   
+    position: relative;
+    cursor: pointer;
 }
 
 .question-and-options .number-hits {
@@ -123,4 +126,38 @@
 
 .template .template-response p {
     font-size: 18px;
+}
+
+@media (max-width: 900px) {
+    .template {
+        width: 70%;
+    }
+}
+
+@media (max-width: 580px) {
+    .question-and-options .number-hits p {
+        text-align: center;
+    }
+
+    .template {
+        width: 80%;
+    }
+
+    .template {
+        width: 80%;
+        grid-template-areas: "header";
+        grid-template-columns: 2fr;
+    }
+}
+
+@media (max-width: 490px) {
+    .question-and-options .buttons-finnaly-page {
+        flex-direction: column;
+        gap: 15px;
+        bottom: -140px;
+    }
+
+    .page-finally {
+        margin-bottom: 160px;
+    }
 }

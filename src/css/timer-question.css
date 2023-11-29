@@ -76,3 +76,33 @@ circle:nth-child(2) {
     align-items: center;
     color: var(--cor-branca);
 }
+
+@media (max-width: 770px) {
+    .section-center .progress div {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .body-section-center .time-question {
+        padding: 10px 0;
+    }
+
+    .body-section-center .time-question p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 580px) {
+    .body-section-center .time-question .time-restant .text-time{
+        display: none;
+    }
+
+    .section-center .progress h2 {
+        font-size: 21px;
+    }
+
+    .section-center .progress div {
+        text-align: center;
+    }
+}
+
