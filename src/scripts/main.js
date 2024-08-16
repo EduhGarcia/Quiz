@@ -1,4 +1,4 @@
-import json from '../../perguntas.json' assert { type: "json" };
+import { json } from './perguntas.js';
 import { templateQuestions } from './template.js';
 
 const container = document.querySelector(".question-and-options")
@@ -136,7 +136,6 @@ function remakeQuiz() {
     container.classList.remove('page-finally')
     timeQuestion.style.display = 'flex'
 
-    startTimer(590, display)
     renderQuestions()
 }
 

@@ -1,4 +1,4 @@
-import json from '../../perguntas.json' assert { type: "json" }
+import { json } from './perguntas.js';
 
 export function templateQuestions() {
     const template = document.querySelector('.template')
